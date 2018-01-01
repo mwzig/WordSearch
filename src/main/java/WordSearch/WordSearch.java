@@ -4,9 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
+
 
 //*********************************************************************************************//
 //*  The WordSearch class is a class that allows a user to supply an input file that contains *//
@@ -65,7 +64,7 @@ public class WordSearch {
 		} else {
 			WordSearch ws = new WordSearch(args[0]);
 			if (args.length == 2 && args[1].toLowerCase().equals("true")) {
-				ws.displayInput = true;
+				ws.setDisplayInput(true);
 			}
 			if (ws.readInputFile()) {
 				ws.findWords();
@@ -107,7 +106,12 @@ public class WordSearch {
 		}
 	}
 
-	// If all words found, return true
+	//*********************************************************************************************//
+	//* This method iterates through the list of words to find and checks all of the GridLine     *//
+	//* objects to see if they contain the word.                                                  *//
+	//* If the list of found words is the same size as the list of words to find                  *//
+	//* the we found everything, so return true, otherwise return false                           *//                                                  *//
+	//*********************************************************************************************//
 	public boolean findWords() {
 
 		for (String wordToFind : wordsToFind) {
@@ -119,12 +123,12 @@ public class WordSearch {
 		} else {
 			return false;
 		}
-
 	}
 
-	//*********************************************************************************************//
-	//* This constructor is the main constructor.                                                 *//
-	//*********************************************************************************************//
+	//***************************************************************************************//
+	//* This method searches each of the GridLine objects for the specified word            *//
+	//* If found, it adds the word to the FoundWords ArrayList                              *//
+	//***************************************************************************************//
 	public void findWord(String wordToFind) {
 
 		ArrayList<LocCoordinate> locCoordList = new ArrayList<LocCoordinate>();
@@ -145,16 +149,13 @@ public class WordSearch {
 		}
 	}
 
-	public ArrayList<FoundWord> getFoundWords() {
-		return foundWords;
-	}
-
-	// *********************************************************************************************//
-	// * Read the input file. It should be located in the /resources directory. *//
-	// * The first line should contain a comma-separated list of words to find *//
-	// * The next lines should contain rows of letters for th word search grid. *//
-	// * The letters may be separated by either a space or a comma. *//
-	// *********************************************************************************************//
+	//************************************************************************************//
+	//* Read the input file. It should be located in the /Resources directory.           *//
+	//* (Or be a fully qualified file name that contains the directory/path etc).        *//
+	//* The first line should contain a comma-separated list of words to find.           *//
+	//* The next lines should contain rows of letters for the word search grid.          *//
+	//* The letters may be separated by either a space or a comma.                       *//
+	// ***********************************************************************************//
 	public boolean readInputFile() {
 
 		boolean fileValid = checkForValidInputFile(this.inputFileName);
@@ -176,10 +177,16 @@ public class WordSearch {
 			for (int i = 0; i < words.length; i++) {
 				wordsToFind.add((words[i]));
 			}
+			if (displayInput) {
+				System.out.println(wordsToFind.toString());
+			}
 
 			while ((gridInputString = br.readLine()) != null) {
 				gridInputStringNoCommas = gridInputString.replaceAll(",", "");
 				gridInputStringNoCommas = gridInputStringNoCommas.replaceAll(" ", "");
+				if (displayInput) {
+					System.out.println(gridInputStringNoCommas);
+				}
 				gridData.add(gridInputStringNoCommas);
 			}
 			fr.close();
@@ -192,5 +199,35 @@ public class WordSearch {
 		}
 
 	}
+
+	//*********************************************************************************************//
+	//* Getters and Setters                                                                       *//
+	//*********************************************************************************************//
+
+	public String getInputFileName() {
+		return inputFileName;
+	}
+
+	public Grid getLetterGrid() {
+		return letterGrid;
+	}
+
+	public ArrayList<String> getWordsToFind() {
+		return wordsToFind;
+	}
+
+	public boolean isDisplayInput() {
+		return displayInput;
+	}
+
+	public ArrayList<FoundWord> getFoundWords() {
+		return foundWords;
+	}
+
+	private void setDisplayInput(boolean displayInput) {
+		this.displayInput = displayInput;
+		
+	}
+
 
 }
