@@ -31,7 +31,7 @@ These files specify the words to find on the first line, and then supply a lette
 To run this application from the command line (on Windows), download from GitHub, then go to the wordsearch directory.  Enter the following:
 
 `
-java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
+java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt 
 `
 
 The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name as follows:
@@ -45,6 +45,9 @@ The second parameter is optional: if "true" is specified, the application will p
 
 `
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
+`
+`
+java -cp ./bin/main WordSearch.WordSearch c:/users/mary/PillarKatas/wordsearch/Resources/HealthyFoodWordSearch.txt true
 `
 
 ## 5. Sample Output
