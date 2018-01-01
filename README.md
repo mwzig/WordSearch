@@ -47,7 +47,7 @@ java -cp ./bin/main WordSearch.WordSearch c:/users/mary/PillarKatas/wordsearch/R
 `
 
 ## 4.  Options
-The second parameter is optional: if "true" is specified, the application will print out the input data.
+The second parameter is optional. If "true" is specified, the application will print out the input data.
 
 `
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
