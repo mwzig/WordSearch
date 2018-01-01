@@ -1,12 +1,18 @@
-# Word Search Kata
+# Word Search
 
 ## Contents
-1.  [What it does and how to run it](#1-what-it-does-and-how-to-run-it)
-2.  SAMPLE OUTPUT:
-3.  SAMPLE OUTPUT (WITH TRUE IN 2ND INPUT PARAMETER TO PRINT INPUT)
-4.  [Design Overview](#4-design-overview)
-5.  [Explanation about the Two GitHub Repositories](#5-explanation-about-the-two-github-repositories)
-6.  [Construction Notes](#6-construction-notes)
+1.  [What it does and how to run it]
+	(#1-what-it-does-and-how-to-run-it)
+2.  [Sample Output]
+	(#2-sample-output)
+3.  [Sample Output - with print input option] 
+	(#3-sample-output-with-print-input-option)
+4.  [Design Overview]
+	(#4-design-overview)
+5.  [Explanation about the Two GitHub Repositories]
+	(#5-explanation-about-the-two-github-repositories)
+6.  [Construction Notes]
+	(#6-construction-notes)
 
 ## 1. What it does and how to run it
 This is a word search application.  It takes as input a file that contains a list of words
@@ -27,15 +33,64 @@ java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
 
 The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name.   The second parameter is optional: if "true" is specified, the application will print out the input data.
 
+
+## 2. Sample Output with print input option
+
+`
+APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
+BLUEBERRIES: (0,12),(1,12),(2,12),(3,12),(4,12),(5,12),(6,12),(7,12),(8,12),(9,12),(10,12)
+BROCCOLI: (19,16),(18,15),(17,14),(16,13),(15,12),(14,11),(13,10),(12,9)
+CARROTS: (7,3),(6,4),(5,5),(4,6),(3,7),(2,8),(1,9)
+KALE: (6,13),(7,14),(8,15),(9,16)
+PINEAPPLE: (6,8),(6,7),(6,6),(6,5),(6,4),(6,3),(6,2),(6,1),(6,0)
+SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
+WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
+`
+
+
+## 3. Sample Output
+
+`
+[APPLES, BLUEBERRIES, BROCCOLI, CARROTS, KALE, PINEAPPLE, SPINACH, WATERMELON]
+PHEOQYBUNXSEBLDWHBJN
+LDLKIXXZCSGMLVAXCYYY
+OMJXZJIHTMLVUTAVAUTM
+XKPJLSFOBYSBEHBANNZA
+KQCNLWRGQQJRBEAGIGMQ
+FHUILRYDXBMDELAPPLES
+ELPPAENIPELMRKCISTVQ
+IDSCFDKDLBBGRVAPDPMX
+XMNVYAGOBJRUIKRLTQQV
+GMDNWYNGWBYOECXCEQUM
+JSCIDBHFIGRBSUXRNGKC
+ZYDRZAZAMAURWKHGURLI
+PNLZSETCJIJUNWZBSNLP
+PLCQQDZLCOLSLQLTSGSS
+MFKHCLMAHCGOPFMUGNXU
+OXGOFKKELWDDCGHEDJDM
+XYBAQXPHOLQPLCNLKWBP
+TJZRHATODBBQJCORSPHV
+NRTNIWOHVENDHWORVXJI
+DNGTSKTECMARRUJLBJWX
+APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
+BLUEBERRIES: (0,12),(1,12),(2,12),(3,12),(4,12),(5,12),(6,12),(7,12),(8,12),(9,12),(10,12)
+BROCCOLI: (19,16),(18,15),(17,14),(16,13),(15,12),(14,11),(13,10),(12,9)
+CARROTS: (7,3),(6,4),(5,5),(4,6),(3,7),(2,8),(1,9)
+KALE: (6,13),(7,14),(8,15),(9,16)
+PINEAPPLE: (6,8),(6,7),(6,6),(6,5),(6,4),(6,3),(6,2),(6,1),(6,0)
+SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
+WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
+`
+
 ## 4. Design Overview
 
 This application uses six classes:
 WordSearch, Grid, GridLetter, LocCoordinate, GridLine, and FoundWord.
-The WordSearch class is the main driving class of the application.  It reads the input file, and creates a Grid object.  The Grid object represents the letter grid where the application looks for the words to find.  
-It contains a two dimensional array of GridLetter objects (to represent multiple rows of letters in the word search grid).  A GridLetter object represents one letter in the grid - it has a character for the letter, and a LocCoordinate object to represent the x,y coordinates of the letter in the Grid.
-The Grid object also contains an ArrayList of GridLine objects.  A GridLine represents the string of letters found moving horizontally, vertically, or diagonally across the lines in the Grid.  Thus, the GridLine object contains the String of letters for that line, and it also contains an ArrayList of the LocCoordinate objects for the letters in that String.  Since we can search from right to left, the GridLines also contain the reverse String for each line.
-The WordSearch object then uses the list of words to find, and searches each line in the Grid object's ArrayList of GridLines for the word.  If it finds the word, it creates a FoundWord object that contains a String representing the word found, and an ArrayList of LocCoordinate objects for each of the letters in the word found.
-When the WordSearch object finishes searching the grid, it iterates through its ArrayList of FoundWord objects, and prints out the word found and its coordinates in the grid.  (It also prints any words not found).  
+The WordSearch class is the main driving class of the application.  It reads the input file and creates a Grid object.  The Grid object represents the letter grid where the application looks for the words to find.  
+The Grid object contains a two dimensional array of GridLetter objects (to represent multiple rows of letters in the word search grid).  A GridLetter object represents one letter in the grid - it has a character for the letter, and a LocCoordinate object to represent the x,y coordinates of the letter in the Grid.
+The Grid object also contains an ArrayList of GridLine objects.  A GridLine represents the string of letters found moving horizontally, vertically, or diagonally across the lines in the Grid.  Thus, the GridLine object contains the string of letters for that line, and it also contains an ArrayList of the LocCoordinate objects for the letters in that string.  Since we can search from right to left, the GridLines also contain the reverse string for each line.
+The WordSearch object then uses the list of words to find, and for each word it searches each GridLine in the Grid object's ArrayList of GridLines.  If it finds the word, it creates a FoundWord object that contains a String representing the word found, and an ArrayList of LocCoordinate objects for each of the letters in the word found.
+When the WordSearch object finishes searching the grid, it iterates through its ArrayList of FoundWord objects, and it then prints out the word found and its coordinates in the grid.  (It also prints any words not found).  
 
 ** This application was designed and written independently by myself.  I did not search the internet for design ideas. **
 
@@ -43,7 +98,7 @@ When the WordSearch object finishes searching the grid, it iterates through its 
 ## 5. Explanation about the Two GitHub Repositories
 I started with a repo named wordsearch, then renamed it to wordsearchw-ogradle.   wordsearchw-ogradle contains the original development history of this project.  When I created the project, I was on a plane and did not have wifi access, so I could not create the project using the gradle build script I normally get from the web.   (I do need to further my knowledge of gradle because in class we just got the script from wcci's github, ran it, did a gradle eclipse then imported the project into eclipse, without really having an underlying understanding). 
 
-I then created a new wordsearch repo after starting my project with a gradle build and gradle eclipse.  I copied the class files over from the old project and continued development.   I thought it would be the cleanest way to have a better directory structure and history.
+I then created a new WordSearch repo after starting my project with a gradle build and gradle eclipse.  I copied the class files over from the old project and continued development.   I thought it would be the cleanest way to have a better directory structure and history.
 
  
 ## 6. Construction Notes
@@ -77,7 +132,7 @@ grid for words to find.  Then reading in the grid and words to find from a file.
 desk check, reformat, more testing, and more doc.
  
   
-### Day 12/26/2017
+### 12/26/2017
 Checked Pillar Kata instructions online again - had downloaded just the instructions for the WordSearch Kata since I was planning to work on flights w/o wifi.  Had forgotten that I needed to watch the testing video.  Watched it, and refactored my test classes (had planned to do that anyway), and added @Before to some tests where appropriate.  Changing how I commit and test some because of watching the video.  Have major tests working.   
 Still need to refactor & remove & cleanup some code, test with more input, and further 
 document.  
