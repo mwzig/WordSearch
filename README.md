@@ -22,7 +22,7 @@ x and y coordinates reversed.  For purposes of my application, the x-coordinate 
 ## 2. Installation
 Clone the repository:
 ```
-    git clone https://github.com/mwzig/WordSearch
+    git clone https://github.com/mwzig/WordSearch.git
 ```
 Build with gradle:
 ```bash
