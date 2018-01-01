@@ -26,6 +26,7 @@ public class WordSearch {
 	private Grid letterGrid;
 	private ArrayList<String> wordsToFind;
 	private ArrayList<FoundWord> foundWords;
+	private ArrayList<String> wordsNotFound;
 	private boolean displayInput;
 
 	//*********************************************************************************************//
@@ -37,6 +38,7 @@ public class WordSearch {
 		this.letterGrid = letterGrid;
 		this.wordsToFind = wordsToFind;
 		this.foundWords = new ArrayList<FoundWord>();
+		this.wordsNotFound = new ArrayList<String>();
 		this.displayInput = false;
 	}
 
@@ -47,6 +49,7 @@ public class WordSearch {
 		this.inputFileName = inputFileName;
 		this.foundWords = new ArrayList<FoundWord>();
 		this.wordsToFind = new ArrayList<String>();
+		this.wordsNotFound = new ArrayList<String>();
 		this.displayInput = false;
 	}
 
@@ -70,6 +73,9 @@ public class WordSearch {
 				ws.findWords();
 				for (FoundWord foundWord : ws.getFoundWords()) {
 					System.out.println(foundWord.toString());
+				}
+				for (String wordNotFound: ws.getWordsNotFound()) {
+					System.out.println("Not found: " + wordNotFound);
 				}
 			} else {
 				System.out.println("Please try again and enter a valid input file name");
@@ -131,6 +137,7 @@ public class WordSearch {
 	//***************************************************************************************//
 	public void findWord(String wordToFind) {
 
+		boolean wordFound = false;
 		ArrayList<LocCoordinate> locCoordList = new ArrayList<LocCoordinate>();
 		GridLine gridLine;
 		for (int i = 0; i < letterGrid.getGridLines().size(); i++) {
@@ -145,7 +152,11 @@ public class WordSearch {
 					locCoordList.add(locList.get(foundAtIndex + j));
 				}
 				foundWords.add(new FoundWord(wordToFind, locCoordList));
+				wordFound = true;
 			}
+		}
+		if (!wordFound) {
+			wordsNotFound.add(wordToFind);
 		}
 	}
 
@@ -222,6 +233,10 @@ public class WordSearch {
 
 	public ArrayList<FoundWord> getFoundWords() {
 		return foundWords;
+	}
+
+	public ArrayList<String> getWordsNotFound() {
+		return wordsNotFound;
 	}
 
 	private void setDisplayInput(boolean displayInput) {

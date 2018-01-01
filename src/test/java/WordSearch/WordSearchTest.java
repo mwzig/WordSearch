@@ -279,4 +279,26 @@ public class WordSearchTest {
 		}
 		assertTrue(bAllWordsFound);
 	}
+
+	// What happens if you have a word search that contains a word 
+	// that is NOT in the grid??? 
+	@Test
+	public void TestWordSearchWithWordsNotFound() {
+
+		WordSearch wordSearch = new WordSearch("WordSearchWithWordsNotFound.txt");
+		wordSearch.readInputFile();
+		boolean bAllWordsFound = wordSearch.findWords();
+		for (FoundWord foundWord : wordSearch.getFoundWords()) {
+			System.out.println(foundWord.toString());
+		}
+		ArrayList<String> expectedWordsNotFound = new ArrayList<String>();
+		expectedWordsNotFound.add("BONESPDQ");
+		expectedWordsNotFound.add("UHURAASAP");
+		
+		ArrayList<String> checkWordsNotFound = wordSearch.getWordsNotFound();
+		assertEquals(expectedWordsNotFound.toString(), checkWordsNotFound.toString());
+		
+		assertFalse(bAllWordsFound);
+	}
+
 }
