@@ -1,7 +1,7 @@
 # Word Search
 
 ## Contents
-1.  [About]](#1-about)
+1.  [About](#1-about)
 2.  [Installation](#2-installation)
 3.  [Usage](#3-usage)
 4.  [Options](#4-options)
