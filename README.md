@@ -12,8 +12,7 @@
 9.  [Construction Notes](#9-construction-notes)
 
 ## 1. About
-This is a word search application.  It takes as input a file that contains a list of words
-to find and a letter grid in which to find the words. The program then prints out a list of the words found and their coordinates in the grid.  (If the grid does not contain all of the words to find, the application also prints out the words not found.  Additionally, the application will optionally print out the input).
+Welcome to my word search application.  This application takes as input a file that contains a list of words to find and a letter grid in which to find the words. The program then prints out a list of the words found and their coordinates in the grid.  (If the grid does not contain all of the words to find, the application also prints out the words not found.  Additionally, the application will optionally print out the input).
 
 This application was created to conform to the following Kata: 
 https://github.com/PillarTechnology/kata-word-search
