@@ -4,11 +4,11 @@
 1.  [What it does and how to run it](#1-what-it-does-and-how-to-run-it)
 2.  SAMPLE OUTPUT:
 3.  SAMPLE OUTPUT (WITH TRUE IN 2ND INPUT PARAMETER TO PRINT INPUT)
-4.  [A brief overview of the design](#4-a-brief-overview-of-the-design)
-5.  EXPLANATION ABOUT THE TWO GITHUB REPOSITORIES:
-6.  DETAILED NOTES ABOUT CONSTRUCTION HISTORY:
+4.  [Design Overview](#4-design-overview)
+5.  [Explanation about the Two GitHub Repositories](#5-explanation-about-the-two-github-repositories)
+6.  [Construction Notes](#6-construction-notes)
 
-## 1. WHAT IT DOES AND HOW TO RUN IT
+## 1. What it does and how to run it
 This is a word search application.  It takes as input a file that contains a list of words
 to find and a letter grid in which to find the words. The program then prints out a list of the words found and their coordinates in the grid.  (If the grid does not contain all of the words to find, the application also prints out the words not found.  Additionally, the application will optionally print out the input).
 
@@ -27,7 +27,7 @@ java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
 
 The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name.   The second parameter is optional: if "true" is specified, the application will print out the input data.
 
-## 4. A BRIEF OVERVIEW OF THE DESIGN
+## 4. Design Overview
 
 This application uses six classes:
 WordSearch, Grid, GridLetter, LocCoordinate, GridLine, and FoundWord.
@@ -40,20 +40,20 @@ When the WordSearch object finishes searching the grid, it iterates through its 
 ** This application was designed and written independently by myself.  I did not search the internet for design ideas. **
 
 
-## 5. EXPLANATION ABOUT THE TWO GITHUB REPOSITORIES
+## 5. Explanation about the Two GitHub Repositories
 I started with a repo named wordsearch, then renamed it to wordsearchw-ogradle.   wordsearchw-ogradle contains the original development history of this project.  When I created the project, I was on a plane and did not have wifi access, so I could not create the project using the gradle build script I normally get from the web.   (I do need to further my knowledge of gradle because in class we just got the script from wcci's github, ran it, did a gradle eclipse then imported the project into eclipse, without really having an underlying understanding). 
 
 I then created a new wordsearch repo after starting my project with a gradle build and gradle eclipse.  I copied the class files over from the old project and continued development.   I thought it would be the cleanest way to have a better directory structure and history.
 
  
-## 6. DETAILED NOTES ABOUT CONSTRUCTION HISTORY
+## 6. Construction Notes
 
-### First Day 12/20/2017
-on the plane (3.5 hours?) (no wifi! no googling!) getting a simple find to work, thinking of a horizontal row.  Then getting the coordinates, then searching backwards.  Note that I started the project w/o wifi and so did not have access to the build gradle that we used in class.  So, started in Eclipse, making my own project folders...  
+### 12/20/2017
+On the plane (3.5 hours?) (no wifi! no googling!) getting a simple find to work, thinking of a horizontal row.  Then getting the coordinates, then searching backwards.  Note that I started the project w/o wifi and so did not have access to the build gradle that we used in class.  So, started in Eclipse, making my own project folders...  
 
 
-### Second Day 12/21/2017
-after family visit (3 hours?) (no googling still except for 2-dim arrays, I want my solution to be original to me!!!).
+### 12/21/2017
+After family visit (3 hours?) (no googling still except for 2-dim arrays, I want my solution to be original to me!!!).
 Got the vertical fwd and backward searches working.  Started thinking about how
 to search diagonally.  Realized I need a redesign and I need to have a GridLetter object
 that has a Letter and its coordinates.  Then I need a 2-dim array of those to 
@@ -63,28 +63,28 @@ class design to handle this problem.
 (Original classes used when first starting to code are in the NoLongerUsed folder).
 
 
-### Third Day 12/22/2017
-spent some time with pencil and paper drawing out class designs.
+### 12/22/2017
+Spent some time with pencil and paper drawing out class designs.
 
 
-### Fourth Day 12/23/2017
-back on the plane with a little time to code out new logic. Crying baby on plane and no dinner.
+### 12/23/2017
+Back on the plane with a little time to code out new logic. Crying baby on plane and no dinner.
 
 
-### Fifth Day 12/24/2017
+### 12/24/2017
 Creating tests for Grid object.  Things are coming together. Next on the list is testing the reverse GridLine logic.  Then the loop to actually search the whole
 grid for words to find.  Then reading in the grid and words to find from a file.  Then
 desk check, reformat, more testing, and more doc.
  
   
-### Sixth Day 12/26/2017
+### Day 12/26/2017
 Checked Pillar Kata instructions online again - had downloaded just the instructions for the WordSearch Kata since I was planning to work on flights w/o wifi.  Had forgotten that I needed to watch the testing video.  Watched it, and refactored my test classes (had planned to do that anyway), and added @Before to some tests where appropriate.  Changing how I commit and test some because of watching the video.  Have major tests working.   
 Still need to refactor & remove & cleanup some code, test with more input, and further 
 document.  
-NEED EITHER TO DOCUMENT OR NOTE ABOUT PILLAR INSTRUCTIONS SEEM TO HAVE X & Y MIXED UP.
+Need to document a note about instruction example - seems to have x & y mixed up.
 
 
-### Seventh Day 12/29/2017
+### 12/29/2017
 Added one more generated word search to the test suite.  Decided not to stop searching through the grid after a word is found for that word because there is nothing saying they cannot be found multiple times, although that would be unusual.
 Retesting all tests - noticed that the ones in GridTest no longer work because I added logic when formatting GridLines to also get and add the reverse Grid Line to the ArrayList of GridLines in the Grid object.
 Fixed the tests to account for this by adding the reverse of the lines to the expected strings.
@@ -115,6 +115,13 @@ Started testing running from command line with correct classpath specified.
 ### 1/1/2018
 Finished coding edits for input file name validity and testing changes.
 Added a second parameter "true" when invoking program to print out the input (words to find, grid).  Completed testing running from command line invoking "main".   Added test to check words not found.  Adding doc to Readme on how to run, design overview, etc.
+Converting readme to markdown.
 
-
+By running `gradle build` i can do stuff.
+Look at the following code snippet:
+    class Main {
+        public Main() {
+            System.out.println("hi");
+        }
+    }
 
