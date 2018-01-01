@@ -19,9 +19,15 @@ https://github.com/PillarTechnology/kata-word-search
 (Note - those instructions have sample output that contains coordinates that appear to have
 x and y coordinates reversed.  For purposes of my application, the x-coordinate (the row number), appears first, and the y-coordinate (the column number), appears second). 
 
-## 2.  Installation
-
-blah blah blah
+## 2. Installation
+Clone the repository:
+```
+    git clone https://github.com/mwzig/WordSearch
+```
+Build with gradle:
+```bash
+    cd WordSearch && gradle build
+```
 
 ## 3.  Usage
 The input file must be formatted as per the example input files supplied with this application.
@@ -53,51 +59,51 @@ java -cp ./bin/main WordSearch.WordSearch c:/users/mary/PillarKatas/wordsearch/R
 
 ## 5. Sample Output
 
-`
-APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
-BLUEBERRIES: (0,12),(1,12),(2,12),(3,12),(4,12),(5,12),(6,12),(7,12),(8,12),(9,12),(10,12)
-BROCCOLI: (19,16),(18,15),(17,14),(16,13),(15,12),(14,11),(13,10),(12,9)
-CARROTS: (7,3),(6,4),(5,5),(4,6),(3,7),(2,8),(1,9)
-KALE: (6,13),(7,14),(8,15),(9,16)
-PINEAPPLE: (6,8),(6,7),(6,6),(6,5),(6,4),(6,3),(6,2),(6,1),(6,0)
-SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
-WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
-`
+```
+    APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
+    BLUEBERRIES: (0,12),(1,12),(2,12),(3,12),(4,12),(5,12),(6,12),(7,12),(8,12),(9,12),(10,12)
+    BROCCOLI: (19,16),(18,15),(17,14),(16,13),(15,12),(14,11),(13,10),(12,9)
+    CARROTS: (7,3),(6,4),(5,5),(4,6),(3,7),(2,8),(1,9)
+    KALE: (6,13),(7,14),(8,15),(9,16)
+    PINEAPPLE: (6,8),(6,7),(6,6),(6,5),(6,4),(6,3),(6,2),(6,1),(6,0)
+    SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
+    WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
+```
 
 
 ## 6. Sample Output with print input option
 
-`
-[APPLES, BLUEBERRIES, BROCCOLI, CARROTS, KALE, PINEAPPLE, SPINACH, WATERMELON]
-PHEOQYBUNXSEBLDWHBJN
-LDLKIXXZCSGMLVAXCYYY
-OMJXZJIHTMLVUTAVAUTM
-XKPJLSFOBYSBEHBANNZA
-KQCNLWRGQQJRBEAGIGMQ
-FHUILRYDXBMDELAPPLES
-ELPPAENIPELMRKCISTVQ
-IDSCFDKDLBBGRVAPDPMX
-XMNVYAGOBJRUIKRLTQQV
-GMDNWYNGWBYOECXCEQUM
-JSCIDBHFIGRBSUXRNGKC
-ZYDRZAZAMAURWKHGURLI
-PNLZSETCJIJUNWZBSNLP
-PLCQQDZLCOLSLQLTSGSS
-MFKHCLMAHCGOPFMUGNXU
-OXGOFKKELWDDCGHEDJDM
-XYBAQXPHOLQPLCNLKWBP
-TJZRHATODBBQJCORSPHV
-NRTNIWOHVENDHWORVXJI
-DNGTSKTECMARRUJLBJWX
-APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
-BLUEBERRIES: (0,12),(1,12),(2,12),(3,12),(4,12),(5,12),(6,12),(7,12),(8,12),(9,12),(10,12)
-BROCCOLI: (19,16),(18,15),(17,14),(16,13),(15,12),(14,11),(13,10),(12,9)
-CARROTS: (7,3),(6,4),(5,5),(4,6),(3,7),(2,8),(1,9)
-KALE: (6,13),(7,14),(8,15),(9,16)
-PINEAPPLE: (6,8),(6,7),(6,6),(6,5),(6,4),(6,3),(6,2),(6,1),(6,0)
-SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
-WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
-`
+```
+    [APPLES, BLUEBERRIES, BROCCOLI, CARROTS, KALE, PINEAPPLE, SPINACH, WATERMELON]
+    PHEOQYBUNXSEBLDWHBJN
+    LDLKIXXZCSGMLVAXCYYY
+    OMJXZJIHTMLVUTAVAUTM
+    XKPJLSFOBYSBEHBANNZA
+    KQCNLWRGQQJRBEAGIGMQ
+    FHUILRYDXBMDELAPPLES
+    ELPPAENIPELMRKCISTVQ
+    IDSCFDKDLBBGRVAPDPMX
+    XMNVYAGOBJRUIKRLTQQV
+    GMDNWYNGWBYOECXCEQUM
+    JSCIDBHFIGRBSUXRNGKC
+    ZYDRZAZAMAURWKHGURLI
+    PNLZSETCJIJUNWZBSNLP
+    PLCQQDZLCOLSLQLTSGSS
+    MFKHCLMAHCGOPFMUGNXU
+    OXGOFKKELWDDCGHEDJDM
+    XYBAQXPHOLQPLCNLKWBP
+    TJZRHATODBBQJCORSPHV
+    NRTNIWOHVENDHWORVXJI
+    DNGTSKTECMARRUJLBJWX
+    APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
+    BLUEBERRIES: (0,12),(1,12),(2,12),(3,12),(4,12),(5,12),(6,12),(7,12),(8,12),(9,12),(10,12)
+    BROCCOLI: (19,16),(18,15),(17,14),(16,13),(15,12),(14,11),(13,10),(12,9)
+    CARROTS: (7,3),(6,4),(5,5),(4,6),(3,7),(2,8),(1,9)
+    KALE: (6,13),(7,14),(8,15),(9,16)
+    PINEAPPLE: (6,8),(6,7),(6,6),(6,5),(6,4),(6,3),(6,2),(6,1),(6,0)
+    SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
+    WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
+```
 
 ## 7. Design Overview
 
