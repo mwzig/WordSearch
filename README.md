@@ -103,10 +103,15 @@ WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
 
 This application uses six classes:
 WordSearch, Grid, GridLetter, LocCoordinate, GridLine, and FoundWord.
-The WordSearch class is the main driving class of the application.  It reads the input file and creates a Grid object.  The Grid object represents the letter grid where the application looks for the words to find.  
+
+The WordSearch class is the main driving class of the application.  It reads the input file and creates a Grid object.  The Grid object represents the letter grid where the application looks for the words to find.
+  
 The Grid object contains a two dimensional array of GridLetter objects (to represent multiple rows of letters in the word search grid).  A GridLetter object represents one letter in the grid - it has a character for the letter, and a LocCoordinate object to represent the x,y coordinates of the letter in the Grid.
+
 The Grid object also contains an ArrayList of GridLine objects.  A GridLine represents the string of letters found moving horizontally, vertically, or diagonally across the lines in the Grid.  Thus, the GridLine object contains the string of letters for that line, and it also contains an ArrayList of the LocCoordinate objects for the letters in that string.  Since we can search from right to left, the GridLines also contain the reverse string for each line.
+
 The WordSearch object then uses the list of words to find, and for each word it searches each GridLine in the Grid object's ArrayList of GridLines.  If it finds the word, it creates a FoundWord object that contains a String representing the word found, and an ArrayList of LocCoordinate objects for each of the letters in the word found.
+
 When the WordSearch object finishes searching the grid, it iterates through its ArrayList of FoundWord objects, and it then prints out the word found and its coordinates in the grid.  (It also prints any words not found).  
 
 ** This application was designed and written independently by myself.  I did not search the internet for design ideas. **
