@@ -34,7 +34,7 @@ The input file must be formatted as per the example input files supplied with th
 (These are found in Resources:  HealthyFoodWordSearch.txt, JunkFoodWordSearch.txt, PillarExampleWordSearch.txt and WordSearchWithWordsNotFound.txt).
 These files specify the words to find on the first line, and then supply a letter grid that has letters separated by spaces or commas (with an equal number of rows and columns in the grid).
 
-To run this application from the command line (on Windows), download from GitHub, then go to the wordsearch directory.  Enter the following:
+To run this application from the command line (on Windows) go to the wordsearch directory.  Enter the following:
 
 `
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt 
