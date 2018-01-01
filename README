@@ -57,7 +57,10 @@ used to build the directory structure, etc.
 Deleted the NoLongerUsed directory from the new project on local repository
 (it is still in the original one wordsearchw-ogradle).
 added a .gitignore file to ignore binary files, etc.
+Started edits for inputfile name validity.
+Testing running from command line with correct classpath specified.
 
+1/1/2018 - Finished coding edits for input file name validity and testing changes.
 
 
 initial build was not done the way they taught us in WCCI because I didn't have WIFI access to get 
