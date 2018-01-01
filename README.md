@@ -46,6 +46,7 @@ The second parameter is optional: if "true" is specified, the application will p
 `
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
 `
+
 `
 java -cp ./bin/main WordSearch.WordSearch c:/users/mary/PillarKatas/wordsearch/Resources/HealthyFoodWordSearch.txt true
 `
