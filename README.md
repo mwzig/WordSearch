@@ -1,8 +1,7 @@
 # Word Search
 
 ## Contents
-1.  [What it does and how to run it]
-	(#1-what-it-does-and-how-to-run-it)
+1.  [What it does and how to run it](#1-what-it-does-and-how-to-run-it)
 2.  [Sample Output]
 	(#2-sample-output)
 3.  [Sample Output - with print input option] 
@@ -171,12 +170,4 @@ Started testing running from command line with correct classpath specified.
 Finished coding edits for input file name validity and testing changes.
 Added a second parameter "true" when invoking program to print out the input (words to find, grid).  Completed testing running from command line invoking "main".   Added test to check words not found.  Adding doc to Readme on how to run, design overview, etc.
 Converting readme to markdown.
-
-By running `gradle build` i can do stuff.
-Look at the following code snippet:
-    class Main {
-        public Main() {
-            System.out.println("hi");
-        }
-    }
 
