@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 //*********************************************************************************************//
@@ -25,42 +27,85 @@ public class WordSearch {
 	private Grid letterGrid;
 	private ArrayList<String> wordsToFind;
 	private ArrayList<FoundWord> foundWords;
+	private boolean displayInput;
 
 	//*********************************************************************************************//
-	//*  This constructor is used as part of testing                                              *//
-	//*  It allows us to hard code a specific letter grid in our tests and pass it to this        *//
-	//*  constructor.                                                                             *//
+	//* This constructor is used as part of testing                                               *//
+	//* It allows us to hard code a specific letter grid in our tests and pass it                 *//
+	//* to this constructor.                                                                      *//
 	//*********************************************************************************************//
 	public WordSearch(Grid letterGrid, ArrayList<String> wordsToFind) {
 		this.letterGrid = letterGrid;
 		this.wordsToFind = wordsToFind;
 		this.foundWords = new ArrayList<FoundWord>();
+		this.displayInput = false;
 	}
-	
+
 	//*********************************************************************************************//
-	//*  This constructor is the main constructor.                                                *//
+	//* This constructor is the main constructor.                                                 *//
 	//*********************************************************************************************//
 	public WordSearch(String inputFileName) {
 		this.inputFileName = inputFileName;
 		this.foundWords = new ArrayList<FoundWord>();
 		this.wordsToFind = new ArrayList<String>();
-	}
-	
-	//*********************************************************************************************//
-	//*  Main method - passed an argument that is the file name of a file                         *//
-	//*  that exists in the resources folder in this directory                                    *//
-	//*********************************************************************************************//
-	public static void main(String[] args) {
-	
-		WordSearch ws = new WordSearch(args[0]);
-		ws.readInputFile();
-		ws.findWords();
-		for (FoundWord foundWord: ws.getFoundWords()) {
-			System.out.println(foundWord.toString());
-		}
-		
+		this.displayInput = false;
 	}
 
+	//*********************************************************************************************//
+	//* Main method - passed an argument that is the name of a file                               *//
+	//* that exists in the resources folder in this directory                                     *//
+	//* (or a fully qualified filename)                                                           *//
+	//* If "true" is passed on the second argument, the input file is displayed before printing   *//
+	//* any found words.                                                                          *//
+	// ********************************************************************************************//
+	public static void main(String[] args) {
+
+		if (args.length == 0) {
+			System.out.println("Please try again and enter an input file name");
+		} else {
+			WordSearch ws = new WordSearch(args[0]);
+			if (args.length == 2 && args[1].toLowerCase().equals("true")) {
+				ws.displayInput = true;
+			}
+			if (ws.readInputFile()) {
+				ws.findWords();
+				for (FoundWord foundWord : ws.getFoundWords()) {
+					System.out.println(foundWord.toString());
+				}
+			} else {
+				System.out.println("Please try again and enter a valid input file name");
+			}
+		}
+	}
+
+	//*********************************************************************************************//
+	//* Checks to see if the file name passed as an argument exists.                              *//
+	//* If a filename with path name is not passed, then format the path name with                *//
+	//* the current directory + /resources/.                                                      *//
+	//*********************************************************************************************//
+	public boolean checkForValidInputFile(String fileName) {
+
+		// Check for / in fileName to see if the user specified a
+		// directory. If not, we assume the Resources directory
+		// in the current path.
+		if (!fileName.contains("\\")) {
+			String basePath = new File("").getAbsolutePath();
+			String inputBasePath = basePath + "\\Resources\\";
+			this.inputFileName = inputBasePath + fileName;
+		}
+		else {
+			this.inputFileName = fileName;
+		}
+
+		File file = new File(this.inputFileName);
+		boolean fileExists = file.exists(); // Check if the file exists
+
+		if (fileExists) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	// If all words found, return true
 	public boolean findWords() {
@@ -78,7 +123,7 @@ public class WordSearch {
 	}
 
 	//*********************************************************************************************//
-	//*  This constructor is the main constructor.                                                *//
+	//* This constructor is the main constructor.                                                 *//
 	//*********************************************************************************************//
 	public void findWord(String wordToFind) {
 
@@ -104,19 +149,21 @@ public class WordSearch {
 		return foundWords;
 	}
 
-	//*********************************************************************************************//
-	//*  Read the input file.  It should be located in the /resources directory.                  *//
-	//*  The first line should contain a comma-separated list of words to find                    *//
-	//*  The next lines should contain rows of letters for th word search grid.                   *//
-	//*  The letters may be separated by either a space or a comma.                               *//
-	//*********************************************************************************************//
-	public void readInputFile() {
-		String basePath = new File("").getAbsolutePath();
-		String inputBasePath = basePath + "/resources/";
-		
-		// Now read in the input file. We will read the data on
-		// each line into an arraylist and parse thru it later
-		String inputFileName = inputBasePath + this.inputFileName;
+	// *********************************************************************************************//
+	// * Read the input file. It should be located in the /resources directory. *//
+	// * The first line should contain a comma-separated list of words to find *//
+	// * The next lines should contain rows of letters for th word search grid. *//
+	// * The letters may be separated by either a space or a comma. *//
+	// *********************************************************************************************//
+	public boolean readInputFile() {
+
+		boolean fileValid = checkForValidInputFile(this.inputFileName);
+
+		if (!fileValid) {
+			System.out.println(this.inputFileName + " does not exist");
+			return false;
+		}
+
 		ArrayList<String> gridData = new ArrayList<String>();
 
 		try {
@@ -125,24 +172,25 @@ public class WordSearch {
 			String gridInputString, gridInputStringNoCommas, inputWordsToFind;
 			inputWordsToFind = br.readLine();
 			String[] words = inputWordsToFind.split(",");
-					
+
 			for (int i = 0; i < words.length; i++) {
 				wordsToFind.add((words[i]));
 			}
-			
+
 			while ((gridInputString = br.readLine()) != null) {
-				gridInputStringNoCommas = gridInputString.replaceAll(",",   "");
+				gridInputStringNoCommas = gridInputString.replaceAll(",", "");
 				gridInputStringNoCommas = gridInputStringNoCommas.replaceAll(" ", "");
-			    gridData.add(gridInputStringNoCommas);
+				gridData.add(gridInputStringNoCommas);
 			}
 			fr.close();
-			
+
 			letterGrid = new Grid(gridData);
+			return true;
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
 		}
 
-	
 	}
 
 }
