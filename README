@@ -1,4 +1,11 @@
 About this application:
+Contents:
+1.  WHAT IT DOES AND HOW TO RUN IT:
+2.  SAMPLE OUTPUT:
+3.  SAMPLE OUTPUT (WITH TRUE IN 2ND INPUT PARAMETER TO PRINT INPUT)
+4.  A BRIEF OVERVIEW OF THE DESIGN:
+5.  EXPLANATION ABOUT THE TWO GITHUB REPOSITORIES:
+6.  DETAILED NOTES ABOUT CONSTRUCTION HISTORY:
 
 1.  WHAT IT DOES AND HOW TO RUN IT:
 This is a word search application.  It takes as input a file that contains a list of words
@@ -10,7 +17,7 @@ https://github.com/PillarTechnology/kata-word-search
 x and y coordinates reversed.  For purposes of my application, the x-coordinate (the row number), appears first, and the y-coordinate (the column number), appears second). 
 
 The input file must be formatted as per the example input files supplied with this application.
-(These are found in Resources:  HealthyFoodWordSearch.txt, JunkFoodWordSearch.txt, PillarExampleWordSearch.txt and WOrdSearchWithWordsNotFound.txt).
+(These are found in Resources:  HealthyFoodWordSearch.txt, JunkFoodWordSearch.txt, PillarExampleWordSearch.txt and WordSearchWithWordsNotFound.txt).
 These files specify the words to find on the first line, and then supply a letter grid that has letters separated by spaces or commas (with an equal number of rows and columns in the grid).
 
 To run this application from the command line (on Windows), download from GitHub, then go to the wordsearch directory.  Enter the following:
@@ -19,26 +26,26 @@ java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
 
 The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name.   The second parameter is optional: if "true" is specified, the application will print out the input data.
 
-2.  A BRIEF OVERVIEW OF THE DESIGN:
+4.  A BRIEF OVERVIEW OF THE DESIGN:
 
 This application uses six classes:
 WordSearch, Grid, GridLetter, LocCoordinate, GridLine, and FoundWord.
 The WordSearch class is the main driving class of the application.  It reads the input file, and creates a Grid object.  The Grid object represents the letter grid where the application looks for the words to find.  
 It contains a two dimensional array of GridLetter objects (to represent multiple rows of letters in the word search grid).  A GridLetter object represents one letter in the grid - it has a character for the letter, and a LocCoordinate object to represent the x,y coordinates of the letter in the Grid.
-The Grid object also contains an ArrayList of GridLine objects.  A GridLine represents the string of letters found moving horizontally, vertically, and diagonally across the lines in the Grid.  Thus, the GridLine object contains the String of letters for that line, and it also contains an ArrayList of the LocCoordinate objects for the letters in that String.  Since we can search from right to left, the GridLines also contain the reverse String for each line.
+The Grid object also contains an ArrayList of GridLine objects.  A GridLine represents the string of letters found moving horizontally, vertically, or diagonally across the lines in the Grid.  Thus, the GridLine object contains the String of letters for that line, and it also contains an ArrayList of the LocCoordinate objects for the letters in that String.  Since we can search from right to left, the GridLines also contain the reverse String for each line.
 The WordSearch object then uses the list of words to find, and searches each line in the Grid object's ArrayList of GridLines for the word.  If it finds the word, it creates a FoundWord object that contains a String representing the word found, and an ArrayList of LocCoordinate objects for each of the letters in the word found.
-When the WordSearch object finishes searching the grid, it prints iterates through its ArrayList of FoundWord objects, and prints out the word found and its coordinates in the grid.  (It also prints any words not found).  
+When the WordSearch object finishes searching the grid, it iterates through its ArrayList of FoundWord objects, and prints out the word found and its coordinates in the grid.  (It also prints any words not found).  
 
 ** This application was designed and written independently by myself.  I did not search the internet for design ideas.
 
 
-3.  EXPLANATION ABOUT THE TWO GITHUB REPOSITORIES:
-I started with a repo named wordsearch, then renamed it to wordsearchw-ogradle.   wordsearchw-ogradle contains the original development history of this project.  When I created the project, I was on a plane and did not have wifi access, so I could not create the project using the gradle build script I normally get from the web.   (I do need to further my knowledge of gradle because in class we basically just got the script for wcci's github, ran it, did a gradle eclipse then imported the project into eclipse, without really having an underlying understanding). 
+5.  EXPLANATION ABOUT THE TWO GITHUB REPOSITORIES:
+I started with a repo named wordsearch, then renamed it to wordsearchw-ogradle.   wordsearchw-ogradle contains the original development history of this project.  When I created the project, I was on a plane and did not have wifi access, so I could not create the project using the gradle build script I normally get from the web.   (I do need to further my knowledge of gradle because in class we just got the script from wcci's github, ran it, did a gradle eclipse then imported the project into eclipse, without really having an underlying understanding). 
 
 I then created a new wordsearch repo after starting my project with a gradle build and gradle eclipse.  I copied the class files over from the old project and continued development.   I thought it would be the cleanest way to have a better directory structure and history.
 
  
-4.  DETAILED NOTES ABOUT CONSTRUCTION HISTORY:
+6.  DETAILED NOTES ABOUT CONSTRUCTION HISTORY:
 
 First Day 12/20/2017:  on the plane (3.5 hours?) (no wifi! no googling!) getting a simple find to work, thinking of a horizontal row.  Then getting the coordinates, then searching backwards.  Note that I started the project w/o wifi and so did not have access to the build gradle that we used in class.  So, started in Eclipse, making my own project folders...  
 
