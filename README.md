@@ -1,10 +1,10 @@
 # Word Search Kata
 
 ## Contents
-1.  [WHAT IT DOES AND HOW TO RUN IT](#what-it-does-and-how-to-run-it)
+1.  [What it does and how to run it](#1-what-it-does-and-how-to-run-it)
 2.  SAMPLE OUTPUT:
 3.  SAMPLE OUTPUT (WITH TRUE IN 2ND INPUT PARAMETER TO PRINT INPUT)
-4.  A BRIEF OVERVIEW OF THE DESIGN:
+4.  [A brief overview of the design](#4-a-brief-overview-of-the-design)
 5.  EXPLANATION ABOUT THE TWO GITHUB REPOSITORIES:
 6.  DETAILED NOTES ABOUT CONSTRUCTION HISTORY:
 
