@@ -1,19 +1,17 @@
 # Word Search
 
 ## Contents
-1.  [What it does and how to run it](#1-what-it-does-and-how-to-run-it)
-2.  [Sample Output]
-	(#2-sample-output)
-3.  [Sample Output - with print input option] 
-	(#3-sample-output-with-print-input-option)
-4.  [Design Overview]
-	(#4-design-overview)
-5.  [Explanation about the Two GitHub Repositories]
-	(#5-explanation-about-the-two-github-repositories)
-6.  [Construction Notes]
-	(#6-construction-notes)
+1.  [About]](#1-about)
+2.  [Installation](#2-installation)
+3.  [Usage](#3-usage)
+4.  [Options](#4-options)
+5.  [Sample Output](#5-sample-output)
+6.  [Sample Output - with print input option](#6-sample-output-with-print-input-option)
+7.  [Design Overview](#7-design-overview)
+8.  [Explanation about the Two GitHub Repositories](#8-explanation-about-the-two-github-repositories)
+9.  [Construction Notes](#9-construction-notes)
 
-## 1. What it does and how to run it
+## 1. About
 This is a word search application.  It takes as input a file that contains a list of words
 to find and a letter grid in which to find the words. The program then prints out a list of the words found and their coordinates in the grid.  (If the grid does not contain all of the words to find, the application also prints out the words not found.  Additionally, the application will optionally print out the input).
 
@@ -22,18 +20,31 @@ https://github.com/PillarTechnology/kata-word-search
 (Note - those instructions have sample output that contains coordinates that appear to have
 x and y coordinates reversed.  For purposes of my application, the x-coordinate (the row number), appears first, and the y-coordinate (the column number), appears second). 
 
+## 2.  Installation
+
+blah blah blah
+
+## 3.  Usage
 The input file must be formatted as per the example input files supplied with this application.
 (These are found in Resources:  HealthyFoodWordSearch.txt, JunkFoodWordSearch.txt, PillarExampleWordSearch.txt and WordSearchWithWordsNotFound.txt).
 These files specify the words to find on the first line, and then supply a letter grid that has letters separated by spaces or commas (with an equal number of rows and columns in the grid).
 
 To run this application from the command line (on Windows), download from GitHub, then go to the wordsearch directory.  Enter the following:
 
+`
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
+`
 
-The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name.   The second parameter is optional: if "true" is specified, the application will print out the input data.
+The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name.
 
+## 4.  Options
+The second parameter is optional: if "true" is specified, the application will print out the input data.
 
-## 2. Sample Output with print input option
+`
+java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
+`
+
+## 5. Sample Output with print input option
 
 `
 APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
@@ -47,7 +58,7 @@ WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
 `
 
 
-## 3. Sample Output
+## 6. Sample Output
 
 `
 [APPLES, BLUEBERRIES, BROCCOLI, CARROTS, KALE, PINEAPPLE, SPINACH, WATERMELON]
@@ -81,7 +92,7 @@ SPINACH: (6,16),(5,16),(4,16),(3,16),(2,16),(1,16),(0,16)
 WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
 `
 
-## 4. Design Overview
+## 7. Design Overview
 
 This application uses six classes:
 WordSearch, Grid, GridLetter, LocCoordinate, GridLine, and FoundWord.
@@ -94,13 +105,13 @@ When the WordSearch object finishes searching the grid, it iterates through its 
 ** This application was designed and written independently by myself.  I did not search the internet for design ideas. **
 
 
-## 5. Explanation about the Two GitHub Repositories
+## 8. Explanation about the Two GitHub Repositories
 I started with a repo named wordsearch, then renamed it to wordsearchw-ogradle.   wordsearchw-ogradle contains the original development history of this project.  When I created the project, I was on a plane and did not have wifi access, so I could not create the project using the gradle build script I normally get from the web.   (I do need to further my knowledge of gradle because in class we just got the script from wcci's github, ran it, did a gradle eclipse then imported the project into eclipse, without really having an underlying understanding). 
 
 I then created a new WordSearch repo after starting my project with a gradle build and gradle eclipse.  I copied the class files over from the old project and continued development.   I thought it would be the cleanest way to have a better directory structure and history.
 
  
-## 6. Construction Notes
+## 9. Construction Notes
 
 ### 12/20/2017
 On the plane (3.5 hours?) (no wifi! no googling!) getting a simple find to work, thinking of a horizontal row.  Then getting the coordinates, then searching backwards.  Note that I started the project w/o wifi and so did not have access to the build gradle that we used in class.  So, started in Eclipse, making my own project folders...  
