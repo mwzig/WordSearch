@@ -6,7 +6,7 @@
 3.  [Usage](#3-usage)
 4.  [Options](#4-options)
 5.  [Sample Output](#5-sample-output)
-6.  [Sample Output - with print input option](#6-sample-output-with-print-input-option)
+6.  [Sample Output with print input option](#6-sample-output-with-print-input-option)
 7.  [Design Overview](#7-design-overview)
 8.  [Explanation about the Two GitHub Repositories](#8-explanation-about-the-two-github-repositories)
 9.  [Construction Notes](#9-construction-notes)
@@ -34,7 +34,11 @@ To run this application from the command line (on Windows), download from GitHub
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
 `
 
-The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name.
+The first parameter is the filename.  It must exist in the Resources directory, or you may specify a fully qualified file name as follows:
+
+`
+java -cp ./bin/main WordSearch.WordSearch c:/users/mary/PillarKatas/wordsearch/Resources/HealthyFoodWordSearch.txt
+`
 
 ## 4.  Options
 The second parameter is optional: if "true" is specified, the application will print out the input data.
@@ -43,7 +47,7 @@ The second parameter is optional: if "true" is specified, the application will p
 java -cp ./bin/main WordSearch.WordSearch HealthyFoodWordSearch.txt true
 `
 
-## 5. Sample Output with print input option
+## 5. Sample Output
 
 `
 APPLES: (5,14),(5,15),(5,16),(5,17),(5,18),(5,19)
@@ -57,7 +61,7 @@ WATERMELON: (0,15),(1,14),(2,13),(3,12),(4,11),(5,10),(6,9),(7,8),(8,7),(9,6)
 `
 
 
-## 6. Sample Output
+## 6. Sample Output with print input option
 
 `
 [APPLES, BLUEBERRIES, BROCCOLI, CARROTS, KALE, PINEAPPLE, SPINACH, WATERMELON]

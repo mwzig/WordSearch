@@ -93,7 +93,7 @@ public class WordSearch {
 		// Check for / in fileName to see if the user specified a
 		// directory. If not, we assume the Resources directory
 		// in the current path.
-		if (!fileName.contains("\\")) {
+		if (!fileName.contains("/")) {
 			String basePath = new File("").getAbsolutePath();
 			String inputBasePath = basePath + "\\Resources\\";
 			this.inputFileName = inputBasePath + fileName;
