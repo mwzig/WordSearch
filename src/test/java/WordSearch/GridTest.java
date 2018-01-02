@@ -79,23 +79,18 @@ public class GridTest {
 	public void testGridLineGetReverse() {
 
 		LocCoordinate locCoordinate;
-		GridLetter gridLetter;
 		ArrayList<LocCoordinate> locCoordinateList = new ArrayList<LocCoordinate>();
 
 		locCoordinate = new LocCoordinate(0, 0);
-		gridLetter = new GridLetter('a', locCoordinate);
 		locCoordinateList.add(locCoordinate);
 
 		locCoordinate = new LocCoordinate(0, 1);
-		gridLetter = new GridLetter('b', locCoordinate);
 		locCoordinateList.add(locCoordinate);
 
 		locCoordinate = new LocCoordinate(0, 2);
-		gridLetter = new GridLetter('c', locCoordinate);
 		locCoordinateList.add(locCoordinate);
 
 		locCoordinate = new LocCoordinate(0, 3);
-		gridLetter = new GridLetter('d', locCoordinate);
 		locCoordinateList.add(locCoordinate);
 
 		GridLine testGridLine = new GridLine("abcd", locCoordinateList);

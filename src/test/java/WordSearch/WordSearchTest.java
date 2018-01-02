@@ -220,6 +220,15 @@ public class WordSearchTest {
 	}
 
 	@Test
+	public void testInputFileNotFound() {
+
+		WordSearch wordSearch = new WordSearch("abc.txt");
+		boolean bCheckReturn = wordSearch.readInputFile();
+		assertFalse(bCheckReturn);
+		// there will also be a console message displayed
+	}
+
+	@Test
 	public void testPillarExampleWordSearchInInputFile() {
 		String expectedPrintFoundWords = "BONES: (6,0),(7,0),(8,0),(9,0),(10,0)" + "KHAN: (9,5),(8,5),(7,5),(6,5)"
 				+ "KIRK: (7,4),(7,3),(7,2),(7,1)" + "SCOTTY: (5,0),(5,1),(5,2),(5,3),(5,4),(5,5)"
@@ -228,7 +237,7 @@ public class WordSearchTest {
 
 		WordSearch wordSearch = new WordSearch("PillarExampleWordSearch.txt");
 		wordSearch.readInputFile();
-		boolean bAllWordsFound = wordSearch.findWords();
+		wordSearch.findWords();
 		String checkPrintFoundWords = "";
 		for (FoundWord foundWord : wordSearch.getFoundWords()) {
 			System.out.println(foundWord.toString());

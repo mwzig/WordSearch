@@ -151,7 +151,7 @@ Spent some time with pencil and paper drawing out class designs.
 
 
 ### 12/23/2017
-Back on the plane with a little time to code out new logic. Crying baby on plane and no dinner.
+Back on the plane with a little time to code out new logic. 
 
 
 ### 12/24/2017
@@ -200,3 +200,9 @@ Finished coding edits for input file name validity and testing changes.
 Added a second parameter "true" when invoking program to print out the input (words to find, grid).  Completed testing running from command line invoking "main".   Added test to check words not found.  Adding doc to Readme on how to run, design overview, etc.
 Converting readme to markdown.
 
+### 1/2/2018
+Asked Brian F. from WCCI for quick look at code.  Per his comments, changed some tests
+named with Test... to test... (start w/ lowercase).   Changed WordSearch.java to use
+java.io.File.separator instead of "/" between path and "Resources" (did not work on 
+Ubunto).  Added test for bad input file path. Changed WordSearchTest to not need to
+create LocCoordinate objects and to be able to pass x,y on GridLetter constructor.
