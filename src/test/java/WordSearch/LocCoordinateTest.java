@@ -1,9 +1,9 @@
-package WordSearch;
+package wordsearch;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import WordSearch.LocCoordinate;
+import wordsearch.LocCoordinate;
 
 public class LocCoordinateTest {
 

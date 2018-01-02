@@ -1,4 +1,4 @@
-package WordSearch;
+package wordsearch;
 
 import static org.junit.Assert.*;
 
@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import WordSearch.Grid;
-import WordSearch.GridLetter;
-import WordSearch.GridLine;
-import WordSearch.LocCoordinate;
+import wordsearch.Grid;
+import wordsearch.GridLetter;
+import wordsearch.GridLine;
+import wordsearch.LocCoordinate;
 
 public class GridTest {
 

@@ -1,4 +1,4 @@
-package WordSearch;
+package wordsearch;
 
 import java.io.BufferedReader;
 import java.io.File;
