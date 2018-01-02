@@ -95,7 +95,8 @@ public class WordSearch {
 		// in the current path.
 		if (!fileName.contains("/")) {
 			String basePath = new File("").getAbsolutePath();
-			String inputBasePath = basePath + "\\Resources\\";
+			String inputBasePath = basePath + java.io.File.separator +
+					"Resources" + java.io.File.separator;
 			this.inputFileName = inputBasePath + fileName;
 		}
 		else {

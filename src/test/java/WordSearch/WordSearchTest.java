@@ -10,7 +10,6 @@ import org.junit.Test;
 import WordSearch.FoundWord;
 import WordSearch.Grid;
 import WordSearch.GridLetter;
-import WordSearch.LocCoordinate;
 import WordSearch.WordSearch;
 
 public class WordSearchTest {
@@ -20,82 +19,65 @@ public class WordSearchTest {
 	@Before
 	public void setUp() throws Exception {
 
-		LocCoordinate locCoordinate;
 		GridLetter gridLetter;
 		inputGrid = new GridLetter[4][4];
 
 		int xCoordinate = 0;
-		locCoordinate = new LocCoordinate(xCoordinate, 0);
-		gridLetter = new GridLetter('a', locCoordinate);
+		gridLetter = new GridLetter('a', xCoordinate, 0);
 		inputGrid[xCoordinate][0] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 1);
-		gridLetter = new GridLetter('b', locCoordinate);
+		gridLetter = new GridLetter('b', xCoordinate, 1);
 		inputGrid[xCoordinate][1] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 2);
-		gridLetter = new GridLetter('c', locCoordinate);
+		gridLetter = new GridLetter('c', xCoordinate, 2);
 		inputGrid[xCoordinate][2] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 3);
-		gridLetter = new GridLetter('d', locCoordinate);
+		gridLetter = new GridLetter('d', xCoordinate, 3);
 		inputGrid[xCoordinate][3] = gridLetter;
 
 		xCoordinate = 1;
-		locCoordinate = new LocCoordinate(xCoordinate, 0);
-		gridLetter = new GridLetter('e', locCoordinate);
+		gridLetter = new GridLetter('e', xCoordinate, 0);
 		inputGrid[xCoordinate][0] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 1);
-		gridLetter = new GridLetter('f', locCoordinate);
+		gridLetter = new GridLetter('f', xCoordinate, 1);
 		inputGrid[xCoordinate][1] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 2);
-		gridLetter = new GridLetter('g', locCoordinate);
+		gridLetter = new GridLetter('g', xCoordinate, 2);
 		inputGrid[xCoordinate][2] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 3);
-		gridLetter = new GridLetter('h', locCoordinate);
+		gridLetter = new GridLetter('h', xCoordinate, 3);
 		inputGrid[xCoordinate][3] = gridLetter;
 
 		xCoordinate = 2;
-		locCoordinate = new LocCoordinate(xCoordinate, 0);
-		gridLetter = new GridLetter('i', locCoordinate);
+		gridLetter = new GridLetter('i', xCoordinate, 0);
 		inputGrid[xCoordinate][0] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 1);
-		gridLetter = new GridLetter('j', locCoordinate);
+		gridLetter = new GridLetter('j', xCoordinate, 1);
 		inputGrid[xCoordinate][1] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 2);
-		gridLetter = new GridLetter('k', locCoordinate);
+		gridLetter = new GridLetter('k', xCoordinate, 2);
 		inputGrid[xCoordinate][2] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 3);
-		gridLetter = new GridLetter('l', locCoordinate);
+		gridLetter = new GridLetter('l', xCoordinate, 3);
 		inputGrid[xCoordinate][3] = gridLetter;
 
 		xCoordinate = 3;
-		locCoordinate = new LocCoordinate(xCoordinate, 0);
-		gridLetter = new GridLetter('m', locCoordinate);
+		gridLetter = new GridLetter('m', xCoordinate, 0);
 		inputGrid[xCoordinate][0] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 1);
-		gridLetter = new GridLetter('n', locCoordinate);
+		gridLetter = new GridLetter('n', xCoordinate, 1);
 		inputGrid[xCoordinate][1] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 2);
-		gridLetter = new GridLetter('o', locCoordinate);
+		gridLetter = new GridLetter('o', xCoordinate, 2);
 		inputGrid[xCoordinate][2] = gridLetter;
 
-		locCoordinate = new LocCoordinate(xCoordinate, 3);
-		gridLetter = new GridLetter('p', locCoordinate);
+		gridLetter = new GridLetter('p', xCoordinate, 3);
 		inputGrid[xCoordinate][3] = gridLetter;
 
 	}
 
 	@Test
-	public void InitialTest() {
+	public void initialTest() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("abc");
 		wordsToFind.add("hgf");
@@ -107,7 +89,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsAcross() {
+	public void findWordsAcross() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("abcd");
 		wordsToFind.add("fgh");
@@ -121,7 +103,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void TestWordSearchPrintOutput() {
+	public void testWordSearchPrintOutput() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("abcd");
 		String expectedPrintOutput = "abcd: (0,0),(0,1),(0,2),(0,3)";
@@ -136,7 +118,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsAcrossReverse() {
+	public void findWordsAcrossReverse() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("dcba");
 		wordsToFind.add("hgf");
@@ -150,7 +132,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsDown() {
+	public void findWordsDown() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("aeim");
 		wordsToFind.add("fjn");
@@ -164,7 +146,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsDownReverse() {
+	public void findWordsDownReverse() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("miea");
 		wordsToFind.add("njf");
@@ -178,7 +160,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsDiagonalTopLeftBottomRight() {
+	public void findWordsDiagonalTopLeftBottomRight() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("eb");
 		wordsToFind.add("ifc");
@@ -193,7 +175,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsDiagonalTopLeftBottomRightReverse() {
+	public void findWordsDiagonalTopLeftBottomRightReverse() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("be");
 		wordsToFind.add("cfi");
@@ -208,7 +190,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsDiagonalBottomLeftTopRight() {
+	public void findWordsDiagonalBottomLeftTopRight() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("in");
 		wordsToFind.add("ejo");
@@ -223,7 +205,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void FindWordsDiagonalBottomLeftTopRightReverse() {
+	public void findWordsDiagonalBottomLeftTopRightReverse() {
 		ArrayList<String> wordsToFind = new ArrayList<String>();
 		wordsToFind.add("ni");
 		wordsToFind.add("oje");
@@ -238,7 +220,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void TestPillarExampleWordSearchInInputFile() {
+	public void testPillarExampleWordSearchInInputFile() {
 		String expectedPrintFoundWords = "BONES: (6,0),(7,0),(8,0),(9,0),(10,0)" + "KHAN: (9,5),(8,5),(7,5),(6,5)"
 				+ "KIRK: (7,4),(7,3),(7,2),(7,1)" + "SCOTTY: (5,0),(5,1),(5,2),(5,3),(5,4),(5,5)"
 				+ "SPOCK: (1,2),(2,3),(3,4),(4,5),(5,6)" + "SULU: (3,3),(2,2),(1,1),(0,0)"
@@ -256,7 +238,7 @@ public class WordSearchTest {
 	}
 
 	@Test
-	public void TestJunkFoodWordSearchInInputFile() {
+	public void testJunkFoodWordSearchInInputFile() {
 
 		WordSearch wordSearch = new WordSearch("JunkFoodWordSearch.txt");
 		wordSearch.readInputFile();
@@ -269,7 +251,7 @@ public class WordSearchTest {
 
 	// Notice that I tested the junk food first. 
 	@Test
-	public void TestHealthyFoodWOrdSearchInInputFile() {
+	public void testHealthyFoodWordSearchInInputFile() {
 
 		WordSearch wordSearch = new WordSearch("HealthyFoodWordSearch.txt");
 		wordSearch.readInputFile();
@@ -283,7 +265,7 @@ public class WordSearchTest {
 	// What happens if you have a word search that contains a word 
 	// that is NOT in the grid??? 
 	@Test
-	public void TestWordSearchWithWordsNotFound() {
+	public void testWordSearchWithWordsNotFound() {
 
 		WordSearch wordSearch = new WordSearch("WordSearchWithWordsNotFound.txt");
 		wordSearch.readInputFile();

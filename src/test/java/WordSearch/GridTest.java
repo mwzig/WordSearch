@@ -19,41 +19,32 @@ public class GridTest {
 	@Before
 	public void setUp() throws Exception {
 
-		LocCoordinate locCoordinate;
 		GridLetter gridLetter;
 		inputGrid = new GridLetter[8][8];
 
 		for (int xCoordinate = 0; xCoordinate < 8; xCoordinate++) {
-			locCoordinate = new LocCoordinate(xCoordinate, 0);
-			gridLetter = new GridLetter('a', locCoordinate);
+			gridLetter = new GridLetter('a', xCoordinate, 0);
 			inputGrid[xCoordinate][0] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 1);
-			gridLetter = new GridLetter('b', locCoordinate);
+			gridLetter = new GridLetter('b', xCoordinate, 1);
 			inputGrid[xCoordinate][1] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 2);
-			gridLetter = new GridLetter('c', locCoordinate);
+			gridLetter = new GridLetter('c', xCoordinate, 2);
 			inputGrid[xCoordinate][2] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 3);
-			gridLetter = new GridLetter('d', locCoordinate);
+			gridLetter = new GridLetter('d', xCoordinate, 3);
 			inputGrid[xCoordinate][3] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 4);
-			gridLetter = new GridLetter('e', locCoordinate);
+			gridLetter = new GridLetter('e', xCoordinate, 4);
 			inputGrid[xCoordinate][4] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 5);
-			gridLetter = new GridLetter('f', locCoordinate);
+			gridLetter = new GridLetter('f', xCoordinate, 5);
 			inputGrid[xCoordinate][5] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 6);
-			gridLetter = new GridLetter('g', locCoordinate);
+			gridLetter = new GridLetter('g', xCoordinate, 6);
 			inputGrid[xCoordinate][6] = gridLetter;
 
-			locCoordinate = new LocCoordinate(xCoordinate, 7);
-			gridLetter = new GridLetter('h', locCoordinate);
+			gridLetter = new GridLetter('h', xCoordinate, 7);
 			inputGrid[xCoordinate][7] = gridLetter;
 		}
 	}
