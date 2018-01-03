@@ -1,4 +1,4 @@
-package wordsearch;
+package temppackage;
 import java.util.ArrayList;
 
 //*********************************************************************************************//

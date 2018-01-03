@@ -1,4 +1,4 @@
-package wordsearch;
+package temppackage;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import wordsearch.FoundWord;
-import wordsearch.LocCoordinate;
+import temppackage.FoundWord;
+import temppackage.LocCoordinate;
 
 public class FoundWordTest {
 

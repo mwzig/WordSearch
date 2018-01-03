@@ -1,4 +1,4 @@
-package wordsearch;
+package temppackage;
 
 public class GridLetter {
 	
