@@ -1,4 +1,4 @@
-package temppackage;
+package wordsearch;
 
 import static org.junit.Assert.*;
 
@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import temppackage.FoundWord;
-import temppackage.Grid;
-import temppackage.GridLetter;
-import temppackage.WordSearch;
+import wordsearch.FoundWord;
+import wordsearch.Grid;
+import wordsearch.GridLetter;
+import wordsearch.WordSearch;
 
 public class WordSearchTest {
 

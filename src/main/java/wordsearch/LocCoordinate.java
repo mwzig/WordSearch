@@ -1,4 +1,4 @@
-package temppackage;
+package wordsearch;
 
 //*********************************************************************************************//
 //*  The locCoordinate class represents the location of a letter in the Grid.                 *//
